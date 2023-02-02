@@ -12,7 +12,7 @@
                         <p>Enter your information to register</p>
                     </div>
                     <div>
-                        <form action="/register" method="POST">
+                        <form action="{{route("register")}}" method="POST">
                             @csrf
                             <div class="flex -mx-3">
                                 <div class="w-1/2 px-3 mb-5">

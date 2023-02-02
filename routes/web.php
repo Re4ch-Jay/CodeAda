@@ -48,4 +48,4 @@ Route::post('/login', [LoginController::class, 'store'])->middleware('guest');
 Route::get('/register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
-Route::post('/logout', [LogoutController::class, 'store']);
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
