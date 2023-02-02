@@ -8,9 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    // public function __contruct() {
-    //     $this->middleware(["guest"]);
-    // }
 
     public function index() {
         return view('auth.login');
