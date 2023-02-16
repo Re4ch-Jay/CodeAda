@@ -9,7 +9,7 @@ class ForumController extends Controller
 {
 
     public function index(){
-        $forums = Forum::latest()->paginate(4);
+        $forums = Forum::latest()->paginate(5);
         return view('forum.index', [
             'forums' => $forums,
         ]);
