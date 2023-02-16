@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 class ForumController extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
         $forums = Forum::latest()->paginate(5);
+
         return view('forum.index', [
             'forums' => $forums,
         ]);
     }
 
-    public function show(Forum $forum){
+    public function show(Forum $forum)
+    {
         $forums = Forum::latest()->get();
         return view('forum.show', [
             'forum' => $forum,
@@ -23,15 +26,17 @@ class ForumController extends Controller
         ]);
     }
 
-    public function create(){
+    public function create()
+    {
         return view('forum.create');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         /**
          * TODO:
          * validate
-         * save 
+         * save
          */
 
 
@@ -52,6 +57,4 @@ class ForumController extends Controller
 
         // dd("store");
     }
-
-
 }
