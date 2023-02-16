@@ -8,7 +8,7 @@
             </div>
 
             <div class="mx-auto max-w-screen-xl flex items-center justify-center lg:pb-8 lg:px-6">
-                <a href="/forums/post" class="mt-5 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                <a href="/forums/forum" class="mt-5 text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                     Create Forum
                 </a>
             </div>
@@ -35,7 +35,7 @@
                                     Jese Leos
                                 </span>
                             </div>
-                            <a href="/forums/1" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                            <a href="/forums/{{$forum->id}}" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                                 Read more
                             </a>
                         </div>
@@ -43,6 +43,12 @@
                 </div>
                 @endforeach
         
+            @endif
+
+            @if($forums->count()) 
+                {{$forums->links()}}
+            @else
+                <p>There is no post right now</p>
             @endif
             
 {{-- 

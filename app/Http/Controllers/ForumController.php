@@ -9,14 +9,17 @@ class ForumController extends Controller
 {
 
     public function index(){
-        $forums = Forum::latest()->get();
+        $forums = Forum::latest()->paginate(4);
         return view('forum.index', [
             'forums' => $forums,
         ]);
     }
 
-    public function show(){
-        return view('forum.show');
+    public function show(Forum $forum){
+       
+        return view('forum.show', [
+            'forum' => $forum,
+        ]);
     }
 
     public function create(){

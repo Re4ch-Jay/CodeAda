@@ -8,26 +8,22 @@
         <a href="#"
           class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">Nutrition</a>
         <h2 class="text-4xl font-semibold text-gray-100 leading-tight">
-          Pellentesque a consectetur velit, ac molestie ipsum. Donec sodales, massa et auctor.
+          {{$forum->title}}
         </h2>
         <div class="flex mt-3">
           <img src="https://randomuser.me/api/portraits/men/97.jpg"
             class="h-10 w-10 rounded-full mr-2 object-cover" />
           <div>
             <p class="font-semibold text-gray-200 text-sm"> Mike Sullivan </p>
-            <p class="font-semibold text-gray-400 text-xs"> 14 Aug </p>
+            <p class="font-semibold text-gray-400 text-xs"> {{$forum->created_at->diffForHumans()}} </p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="px-4 lg:px-0 mt-12 text-gray-700 max-w-screen-md mx-auto text-lg leading-relaxed">
-      <p class="pb-6">Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is
-        justice. Six draw
-        you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages
-        resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was
-        outlived peculiar rendered led six.</p>
-
+    <div class="px-4 lg:px-0 mt-12 text-white max-w-screen-md mx-auto text-lg leading-relaxed">
+      <p class="pb-6">{{$forum->body}}</p>
+{{-- 
       <p class="pb-6">Difficulty on insensible reasonable in. From as went he they. Preference themselves me as
         thoroughly
         partiality considered on in estimating. Middletons acceptance discovered projecting so is so or. In or
@@ -80,7 +76,7 @@
         make two real
         miss use easy. Celebrated delightful an especially increasing instrument am. Indulgence contrasted sufficient
         to unpleasant in in insensible favourable. Latter remark hunted enough vulgar say man. Sitting hearted on it
-        without me.</p>
+        without me.</p> --}}
 
     </div>
   </main>

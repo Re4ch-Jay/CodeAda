@@ -24,9 +24,9 @@ Route::get('/', function () {
 
 Route::get('/forums', [ForumController::class, 'index'])->name('forums');
 
-Route::get('/forums/post', [ForumController::class, 'create'])->middleware('auth');
-Route::post('/forums/post', [ForumController::class, 'store'])->middleware('auth');
-Route::get('/forums/{id}', [ForumController::class, 'show']);
+Route::get('/forums/forum', [ForumController::class, 'create'])->middleware('auth');
+Route::post('/forums/forum', [ForumController::class, 'store'])->middleware('auth');
+Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forums.show');
 
 
 // auth
