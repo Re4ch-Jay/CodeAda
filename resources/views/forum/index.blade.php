@@ -94,8 +94,9 @@
                             </div>
                         </article>
                     @endforeach
-                    {{ $forums->links() }}
+
                 </div>
+                {{ $forums->links() }}
             @else
                 <div class="flex items-center justify-center">
                     <p class="text-white text-md-center">There is no post right now come back</p>

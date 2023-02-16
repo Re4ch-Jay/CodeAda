@@ -10,7 +10,8 @@ class ForumController extends Controller
 
     public function index()
     {
-        $forums = Forum::latest()->paginate(5);
+
+        $forums = Forum::latest()->paginate(31);
 
         return view('forum.index', [
             'forums' => $forums,
@@ -39,22 +40,18 @@ class ForumController extends Controller
          * save
          */
 
-
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required|max:255',
             'body' => 'required'
         ]);
 
-        Forum::create([
+        $request->user()->forums()->create([
             'title' => $request->title,
             'description' => $request->description,
             'body' => $request->body,
         ]);
 
-
         return redirect('/forums');
-
-        // dd("store");
     }
 }
