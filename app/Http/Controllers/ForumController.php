@@ -9,7 +9,10 @@ class ForumController extends Controller
 {
 
     public function index(){
-        return view('forum.index');
+        $forums = Forum::latest()->get();
+        return view('forum.index', [
+            'forums' => $forums,
+        ]);
     }
 
     public function show(){
@@ -30,7 +33,7 @@ class ForumController extends Controller
 
         $this->validate($request, [
             'title' => 'required|max:255',
-            'description' => 'required',
+            'description' => 'required|max:255',
             'body' => 'required'
         ]);
 

@@ -28,18 +28,6 @@ Route::get('/forums/post', [ForumController::class, 'create'])->middleware('auth
 Route::post('/forums/post', [ForumController::class, 'store'])->middleware('auth');
 Route::get('/forums/{id}', [ForumController::class, 'show']);
 
-// Route::post('/forums/post', [ForumController::class, 'save']);
-
-// Route::delete('/forums/post', [ForumController::class, 'destroy']);
-
-
-// Route::get('/articles', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/news', function () {
-//     return view('welcome');
-// });
 
 // auth
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
