@@ -54,6 +54,9 @@
                         </div>
                     </article>
                 </div>
+            @endif
+
+            @if ($forums->count())
                 <div class="grid gap-8 lg:grid-cols-2 mb-5">
                     @foreach ($forums->skip(1) as $forum)
                         <article

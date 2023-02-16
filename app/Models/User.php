@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Forum;
+use App\Models\Comment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -49,7 +50,8 @@ class User extends Authenticatable
         return $this->hasMany(Forum::class);
     }
 
-    // public function comments() {
-    //     return $this->hasMany()
-    // }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

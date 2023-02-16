@@ -25,7 +25,26 @@
         <div class="px-4 lg:px-0 mt-12 text-white max-w-screen-md mx-auto text-lg leading-relaxed">
             <p class="pb-6">{{ $forum->body }}</p>
         </div>
+
+
     </main>
+
+    @foreach ($forum->comments as $comment)
+        <section class="bg-grey-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+                    <p class="pb-6 text-white">
+                        {{ $comment->comment }}
+                    </p>
+                    <p class="text-white">
+                        Comment by {{ $comment->user->first_name }} {{ $comment->created_at->diffForHumans() }}
+                    </p>
+                </div>
+            </div>
+        </section>
+    @endforeach
+
+
     @if ($forums->count())
         <section class="bg-grey-900">
             <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
