@@ -17,9 +17,9 @@ class ForumFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->title(),
+            'title' => $this->faker->sentence(1),
             'description' => $this->faker->sentence(20),
-            'body' => $this->faker->paragraphs(4)
+            'body' => $this->faker->sentence(40)
         ];
     }
 }

@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Forum::class);
     }
+
+    // public function comments() {
+    //     return $this->hasMany()
+    // }
 }
