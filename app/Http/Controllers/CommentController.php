@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Forum;
 use App\Models\Comment;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 
@@ -34,9 +36,24 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store(Request $request, Forum $forum)
     {
-        //
+        /**
+         * TODO:
+         * validate
+         * save
+         */
+
+        $this->validate($request, [
+            'comment' => 'required',
+        ]);
+
+        $request->user()->comments()->create([
+            'comment' => $request->comment,
+            'forum_id' => $forum->id,
+        ]);
+
+        return back();
     }
 
     /**

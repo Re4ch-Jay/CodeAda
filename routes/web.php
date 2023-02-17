@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,7 @@ Route::get('/forums/forum', [ForumController::class, 'create'])->middleware('aut
 Route::post('/forums/forum', [ForumController::class, 'store'])->middleware('auth');
 Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forums.show');
 
+Route::post('/forums/{forum}/comment', [CommentController::class, 'store'])->name('forums.comment')->middleware('auth');
 
 // auth
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
