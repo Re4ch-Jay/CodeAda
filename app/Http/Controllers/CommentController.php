@@ -41,6 +41,7 @@ class CommentController extends Controller
         /**
          * TODO:
          * validate
+         * get forum id by route model binding
          * save
          */
 

@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::post('/forums/forum', [ForumController::class, 'store'])->middleware('aut
 Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forums.show');
 
 Route::post('/forums/{forum}/comment', [CommentController::class, 'store'])->name('forums.comment')->middleware('auth');
+Route::post('/forums/{forum}/like', [LikeController::class, 'store'])->name('forums.like')->middleware('auth');
+Route::delete('/forums/{forum}/like', [LikeController::class, 'destroy'])->name('forums.like')->middleware('auth');
 
 // auth
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
