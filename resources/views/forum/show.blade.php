@@ -15,7 +15,7 @@
                     <img src="https://randomuser.me/api/portraits/men/97.jpg"
                         class="h-10 w-10 rounded-full mr-2 object-cover" />
                     <div>
-                        <p class="font-semibold text-gray-200 text-sm"> Mike Sullivan </p>
+                        <p class="font-semibold text-gray-200 text-sm"> {{ $forum->user->first_name }} </p>
                         <p class="font-semibold text-gray-400 text-xs"> {{ $forum->created_at->diffForHumans() }} </p>
                     </div>
                 </div>
@@ -25,7 +25,6 @@
         <div class="px-4 lg:px-0 mt-12 text-white max-w-screen-md mx-auto text-lg leading-relaxed">
             <p class="pb-6">{{ $forum->body }}</p>
         </div>
-
 
     </main>
 
