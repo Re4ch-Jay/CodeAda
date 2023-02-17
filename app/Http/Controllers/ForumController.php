@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Forum;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -21,6 +22,7 @@ class ForumController extends Controller
     public function show(Forum $forum)
     {
         $forums = Forum::latest()->get();
+
         return view('forum.show', [
             'forum' => $forum,
             'forums' => $forums,

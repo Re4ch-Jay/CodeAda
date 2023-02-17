@@ -29,20 +29,24 @@
 
     </main>
 
-    @foreach ($forum->comments as $comment)
-        <section class="bg-grey-900">
-            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-                <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+    <section class="bg-grey-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+
+            @foreach ($forum->comments as $comment)
+                <div class="bg-gray-700 p-5 rounded-xl mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                     <p class="pb-6 text-white">
                         {{ $comment->comment }}
                     </p>
                     <p class="text-white">
-                        Comment by {{ $comment->user->first_name }} {{ $comment->created_at->diffForHumans() }}
+                        Commented by <strong class="text-bold text-blue-500"> {{ $comment->user->first_name }} </strong>
+                        {{ $comment->created_at->diffForHumans() }}
                     </p>
                 </div>
-            </div>
-        </section>
-    @endforeach
+            @endforeach
+
+        </div>
+    </section>
+
 
 
     @if ($forums->count())

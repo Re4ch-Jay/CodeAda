@@ -44,7 +44,7 @@
                                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                                     alt="Jese Leos avatar" />
                                 <span class="font-medium text-white">
-                                    Jese Leos
+                                    {{ $forums[0]->user->first_name }}
                                 </span>
                             </div>
                             <a href="/forums/{{ $forums[0]->id }}"
@@ -86,7 +86,7 @@
                                         src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                                         alt="Jese Leos avatar" />
                                     <span class="font-medium text-white">
-                                        Jese Leos
+                                        {{ $forum->user->first_name }}
                                     </span>
                                 </div>
                                 <a href="/forums/{{ $forum->id }}"
