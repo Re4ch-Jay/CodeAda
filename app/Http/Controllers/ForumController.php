@@ -12,7 +12,7 @@ class ForumController extends Controller
     public function index()
     {
 
-        $forums = Forum::latest()->filter(request(['tag', 'user']))->paginate(7);
+        $forums = Forum::latest()->filter(request(['tag', 'user', 'search']))->paginate(7);
 
         return view('forum.index', [
             'forums' => $forums,

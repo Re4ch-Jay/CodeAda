@@ -15,8 +15,23 @@
                 </a>
             </div>
 
+            <form action="/forums/">
+                <div class="relative border-2 border-gray-100 m-4 rounded-lg">
+                    <input type="text" name="search"
+                        class="h-14 w-full pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
+                        placeholder="Search..." />
+                    <div class="absolute top-2 right-2">
+                        <button type="submit" class="h-10 w-20 text-white rounded-lg bg-blue-600 hover:bg-blue-700">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+
             <div class="my-10 text-gray-900 font-bold sm:text-xl">
-                Forums {{ $forums->total() }}
+                <a href="/forums">
+                    Forums {{ $forums->total() }}
+                </a>
             </div>
 
             @if ($forums->count())

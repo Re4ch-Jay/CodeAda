@@ -28,6 +28,12 @@ class Forum extends Model
         if ($filters['user'] ?? false) {
             $query->where('user_id', 'like', '%' . request('user') . '%');
         }
+
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%')
+                ->orWhere('tag', 'like', '%' . request('search') . '%');
+        }
     }
 
     public function user()
