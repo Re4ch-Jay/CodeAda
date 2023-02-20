@@ -16,7 +16,19 @@ class Forum extends Model
         'description',
         'body',
         'user_id',
+        'tag'
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['tag'] ?? false) {
+            $query->where('tag', 'like', '%' . request('tag') . '%');
+        }
+
+        if ($filters['user'] ?? false) {
+            $query->where('user_id', 'like', '%' . request('user') . '%');
+        }
+    }
 
     public function user()
     {

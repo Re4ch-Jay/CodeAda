@@ -12,7 +12,7 @@ class ForumController extends Controller
     public function index()
     {
 
-        $forums = Forum::latest()->paginate(31);
+        $forums = Forum::latest()->filter(request(['tag', 'user']))->paginate(7);
 
         return view('forum.index', [
             'forums' => $forums,
@@ -45,13 +45,15 @@ class ForumController extends Controller
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required|max:255',
-            'body' => 'required'
+            'body' => 'required',
+            'tag' => 'required'
         ]);
 
         $request->user()->forums()->create([
             'title' => $request->title,
             'description' => $request->description,
             'body' => $request->body,
+            'tag' => $request->tag
         ]);
 
         return redirect('/forums');

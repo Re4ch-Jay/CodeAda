@@ -19,10 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/forums');
-});
-
 
 Route::get('/forums', [ForumController::class, 'index'])->name('forums');
 
@@ -42,3 +38,7 @@ Route::get('/register', [RegisterController::class, 'index'])->name('register')-
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+
+Route::get('/', function () {
+    return redirect('https://community-flame.vercel.app/');
+});
