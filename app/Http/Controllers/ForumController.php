@@ -59,7 +59,30 @@ class ForumController extends Controller
     }
 
     public function edit(Forum $forum) {
+        //dd($forum->description);
         return view('forum.edit', ['forum' => $forum]);
+    }
+
+    public function update(Request $request, Forum $forum) {
+
+        $this->validate($request, [
+            'title' => 'required|max:255',
+            'description' => 'required|max:255',
+            'body' => 'required',
+            'tag' => 'required'
+        ]);
+
+        if($forum->ownedBy(auth()->user())) {
+
+            $forum->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'body' => $request->body,
+                'tag' => $request->tag
+            ]);
+        }
+        
+        return redirect("/forums");
     }
 
     public function destroy(Forum $forum) {

@@ -26,6 +26,7 @@ Route::get('/forums/forum', [ForumController::class, 'create'])->middleware('aut
 Route::post('/forums/forum', [ForumController::class, 'store'])->middleware('auth');
 Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forums.show');
 Route::get('/forums/{forum}/edit', [ForumController::class, 'edit'])->name('forums.edit')->middleware('auth');
+Route::put('/forums/{forum}', [ForumController::class, 'update'])->middleware('auth');
 Route::delete('/forums/{forum}', [ForumController::class, 'destroy'])->name('forums.destroy')->middleware('auth');
 
 

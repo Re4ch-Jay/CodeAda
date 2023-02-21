@@ -16,9 +16,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // Forum::factory()->create([
-        //     'user_id' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'email' => 'panhareach.phat@student.cadt.edu.kh',
+        ]);
+
+        \App\Models\Forum::factory(200)->create(['user_id' => 1]);
+
+        \App\Models\Comment::factory(4)->create(['user_id' => 1, 'forum_id' => 1]);
     }
 }
