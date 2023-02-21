@@ -29,8 +29,8 @@
                 <div class="mb-6">
                     <label for="tag" class="block mb-2 text-sm font-medium text-gray-900">Your
                         Tag</label>
-                    <textarea type="tag" id="tag" name="tag"
-                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500">{{$forum->tag}}</textarea>
+                    <input type="tag" id="tag" name="tag" value="{{$forum->tag}}"
+                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500" />
                     @error('tag')
                         <div class="text-red-400 font-bold text-xs">{{ $message }}</div>
                     @enderror

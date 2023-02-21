@@ -136,7 +136,7 @@
                             <div class="flex -mx-3">
                                 <div class="w-full px-3 mb-5">
                                     <button type="submit"
-                                        class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-gray-900 rounded-lg px-3 py-3 font-semibold">LOGIN
+                                        class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">LOGIN
                                         NOW</button>
                                 </div>
                             </div>
