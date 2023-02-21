@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Forum;
-use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -56,6 +55,18 @@ class ForumController extends Controller
             'tag' => $request->tag
         ]);
 
+        return redirect('/forums');
+    }
+
+    public function edit(Forum $forum) {
+        return view('forum.edit', ['forum' => $forum]);
+    }
+
+    public function destroy(Forum $forum) {
+
+        if($forum->ownedBy(auth()->user())) {
+            $forum->delete();
+        }
         return redirect('/forums');
     }
 }

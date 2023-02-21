@@ -25,6 +25,9 @@ Route::get('/forums', [ForumController::class, 'index'])->name('forums');
 Route::get('/forums/forum', [ForumController::class, 'create'])->middleware('auth');
 Route::post('/forums/forum', [ForumController::class, 'store'])->middleware('auth');
 Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forums.show');
+Route::get('/forums/{forum}/edit', [ForumController::class, 'edit'])->name('forums.edit')->middleware('auth');
+Route::delete('/forums/{forum}', [ForumController::class, 'destroy'])->name('forums.destroy')->middleware('auth');
+
 
 Route::post('/forums/{forum}/comment', [CommentController::class, 'store'])->name('forums.comment')->middleware('auth');
 Route::post('/forums/{forum}/like', [LikeController::class, 'store'])->name('forums.like')->middleware('auth');
@@ -39,6 +42,6 @@ Route::post('/register', [RegisterController::class, 'store'])->middleware('gues
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/', function () {
-    return redirect('https://community-flame.vercel.app/');
-});
+// Route::get('/', function () {
+//     return redirect('https://community-flame.vercel.app/');
+// });
