@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Forum;
 use App\Models\Comment;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreCommentRequest;
-use App\Http\Requests\UpdateCommentRequest;
 
 class CommentController extends Controller
 {
@@ -30,12 +28,7 @@ class CommentController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreCommentRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request, Forum $forum)
     {
         /**
@@ -82,11 +75,11 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCommentRequest  $request
+     * @param  \App\Http\Requests  $request
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCommentRequest $request, Comment $comment)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -96,10 +89,9 @@ class CommentController extends Controller
      *
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function destroy(Comment $comment)
     {
         //
     }
-
 }

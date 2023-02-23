@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
-
     public function index()
     {
 
@@ -69,12 +68,14 @@ class ForumController extends Controller
         return redirect('/forums');
     }
 
-    public function edit(Forum $forum) {
+    public function edit(Forum $forum)
+    {
         //dd($forum->description);
         return view('forum.edit', ['forum' => $forum]);
     }
 
-    public function update(Request $request, Forum $forum) {
+    public function update(Request $request, Forum $forum)
+    {
 
         $this->validate($request, [
             'title' => 'required|max:255',
@@ -83,7 +84,7 @@ class ForumController extends Controller
             'tag' => 'required'
         ]);
 
-        if($forum->ownedBy(auth()->user())) {
+        if ($forum->ownedBy(auth()->user())) {
 
             $forum->update([
                 'title' => $request->title,
@@ -92,13 +93,14 @@ class ForumController extends Controller
                 'tag' => $request->tag
             ]);
         }
-        
+
         return redirect("/forums");
     }
 
-    public function destroy(Forum $forum) {
+    public function destroy(Forum $forum)
+    {
 
-        if($forum->ownedBy(auth()->user())) {
+        if ($forum->ownedBy(auth()->user())) {
             $forum->delete();
         }
         return redirect('/forums');

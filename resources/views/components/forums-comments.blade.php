@@ -5,7 +5,7 @@
         <div class="flex items-center">
             <p class="inline-flex items-center mr-3 text-sm text-gray-900 text-gray-900 font-bold"><img
                     class="mr-2 w-6 h-6 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                    alt="Michael Gough">{{ $comment->user->first_name }} </p>
+                    alt="Michael Gough">{{ $comment->user->name }} </p>
             <p class="text-sm text-gray-600 text-gray-900"><time pubdate datetime="2022-02-08"
                     title="February 8th, 2022">{{ $comment->created_at->diffForHumans() }}</time></p>
         </div>
@@ -16,7 +16,7 @@
         </button>
     </div>
     <p class="text-gray-500 text-gray-900">{{ $comment->comment }}</p>
-    <form action="{{route('forums.comment', $comment)}}" method="POST" class="flex items-center mt-4 space-x-4">
+    <form action="{{ route('forums.comment', $comment) }}" method="POST" class="flex items-center mt-4 space-x-4">
         @csrf
         @method('DELETE')
         <button type="submit" class="flex items-center text-sm text-gray-500 hover:underline text-gray-900">

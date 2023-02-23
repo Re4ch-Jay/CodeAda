@@ -17,7 +17,7 @@
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                 alt="Jese Leos avatar" />
             <span class="font-medium text-gray-900">
-                {{ $forum->user->first_name }}
+                {{ $forum->user->name }}
             </span>
             <x-likes_and_comment :likes="$forum->likes" :comments="$forum->comments" />
         </div>

@@ -12,11 +12,10 @@
 
 <body class="bg-white">
 
-    <x-navbar />
+    {{-- /@include('layouts.navigation') --}}
 
     {{ $slot }}
 
-    <x-footer />
 
 </body>
 

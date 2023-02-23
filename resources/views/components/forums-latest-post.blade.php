@@ -18,7 +18,7 @@
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="Jese Leos avatar" />
                 <span class="font-medium text-gray-900">
-                    {{$forums[1]->user->first_name}}
+                    {{ $forums[0]->user->name }}
                 </span>
                 <x-likes_and_comment :likes="$forums[0]->likes" :comments="$forums[0]->comments" />
             </div>
@@ -45,7 +45,7 @@
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="Jese Leos avatar" />
                 <span class="font-medium text-gray-900">
-                    {{$forums[1]->user->first_name}}
+                    {{ $forums[1]->user->name }}
                 </span>
 
                 <x-likes_and_comment :likes="$forums[1]->likes" :comments="$forums[1]->comments" />
