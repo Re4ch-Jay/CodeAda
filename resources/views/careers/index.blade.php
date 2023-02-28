@@ -33,4 +33,7 @@
     <section id="sponsor">
 
     </section>
+
+    <x-search />
+
 </x-app-layout>
