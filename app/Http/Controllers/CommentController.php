@@ -69,19 +69,24 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('comment.edit', ['comment' => $comment]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests  $request
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Comment $comment)
     {
-        //
+
+        $this->validate($request, [
+            'comment' => 'required',
+        ]);
+
+        if ($comment->ownedBy(auth()->user())) {
+            $comment->update([
+                'comment' => $request->comment,
+            ]);
+        }
+
+        return redirect("/forums");
     }
 
     /**
@@ -90,8 +95,18 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Comment $comment, Request $request)
     {
-        //
+
+        //dd($comment->ownedBy(auth()->user()));
+
+        // dd($request->user()->comments()->where('comment_id', $comment->id));
+        $request->user()->comments()->where('id', $comment->id)->delete();
+
+        // if ($comment->ownedBy(auth()->user())) {
+        //     $comment->delete();
+        // }
+
+        return back();
     }
 }

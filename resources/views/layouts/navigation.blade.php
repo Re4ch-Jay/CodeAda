@@ -116,6 +116,12 @@
             <x-responsive-nav-link :href="route('forums')" :active="request()->routeIs('forums')">
                 {{ __('Forums') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('careers')" :active="request()->routeIs('careers')">
+                {{ __('Careers') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('articles')" :active="request()->routeIs('articles')">
+                {{ __('Articles') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

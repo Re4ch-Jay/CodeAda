@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CareerController;
 use App\Models\Forum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LikeController;
@@ -39,12 +40,21 @@ Route::put('/forums/{forum}', [ForumController::class, 'update'])->middleware(['
 Route::delete('/forums/{forum}', [ForumController::class, 'destroy'])->name('forums.destroy')->middleware(['auth', 'verified']);
 // Comment in forums
 Route::post('/forums/{forum}/comment', [CommentController::class, 'store'])->name('forums.comment')->middleware(['auth', 'verified']);
+Route::delete('/forums/{comment}/comment', [CommentController::class, 'destroy'])->name('forums.comment.destroy')->middleware(['auth', 'verified']);
+Route::get('/forums/{comment}/comment/edit', [CommentController::class, 'edit'])->name('forums.comment.edit')->middleware(['auth', 'verified']);
+Route::put('/forums/{comment}/comment', [CommentController::class, 'update'])->name('forums.comment')->middleware(['auth', 'verified']);
 // Like & unlike in forums
 Route::post('/forums/{forum}/like', [LikeController::class, 'store'])->name('forums.like')->middleware(['auth', 'verified']);
 Route::delete('/forums/{forum}/like', [LikeController::class, 'destroy'])->name('forums.like')->middleware(['auth', 'verified']);
 
+// career routes
+Route::get('/careers', [CareerController::class, 'index'])->name('careers');
+
+
+
+
 Route::get('/articles', [ForumController::class, 'index'])->name('articles');
-Route::get('/careers', [ForumController::class, 'index'])->name('careers');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
