@@ -13,10 +13,7 @@
                 @error('comment')
                     <div class="text-red-400 font-bold text-xs">{{ $message }}</div>
                 @enderror
-                <button type="submit"
-                    class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-gray-900 bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 focus:ring-primary-900 hover:bg-primary-800">
-                    Update comment
-                </button>
+                @include('partials._button-update')
             </form>
         </div>
     </section>
