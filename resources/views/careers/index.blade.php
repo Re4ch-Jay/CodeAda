@@ -11,12 +11,22 @@
                 <div class="relative border-2 border-gray-100 m-4 rounded-lg">
                     <input type="text" name="search"
                         class="h-14 w-full pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
-                        placeholder="Search..." />
+                        placeholder="Search for location, job title, job type, salary...." />
                     <div class="absolute top-2 right-2">
                         @include('partials._button-search')
                     </div>
                 </div>
             </form>
+
+            <div id="count" class="my-10 text-gray-900 font-bold sm:text-xl text-center">
+                <a href="/careers#count">
+                    Job listing found {{ $careers->total() }}
+                    @if (!empty($search))
+                        with
+                        {{ $search }}
+                    @endif
+                </a>
+            </div>
 
 
             @foreach ($careers as $career)

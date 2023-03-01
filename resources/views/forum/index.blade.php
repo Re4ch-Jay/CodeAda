@@ -2,12 +2,11 @@
 
     <section class="bg-white">
         <div class="py-2 px-4 mx-auto max-w-screen-xl lg:pt-8 lg:px-6">
-            @include('partials._forums-header')
+            <x-forums-header :users="$users" />
 
             <x-search />
 
             <x-forums-filter />
-
 
             <div class="my-10 text-gray-900 font-bold sm:text-xl">
                 <a href="/forums">

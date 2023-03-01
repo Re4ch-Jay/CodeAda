@@ -29,7 +29,8 @@ class Career extends Model
                 ->orWhere('location', 'like', '%' . request('search') . '%')
                 ->orWhere('job_type', 'like', '%' . request('search') . '%')
                 ->orWhere('website', 'like', '%' . request('search') . '%')
-                ->orWhere('company_name', 'like', '%' . request('search') . '%');
+                ->orWhere('company_name', 'like', '%' . request('search') . '%')
+                ->orWhere('salary', 'like', '%' . request('search') . '%');
         }
 
         if ($filters['tags'] ?? false) {
@@ -52,5 +53,10 @@ class Career extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function ownedBy(User $user)
+    {
+        return $user->id === $this->user_id;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Forum;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,10 @@ class ForumController extends Controller
     {
 
         $forums = Forum::latest()->filter(request(['tag', 'user', 'search', 'filter']))->paginate(7);
-
+        $users = User::all();
         return view('forum.index', [
             'forums' => $forums,
+            'users' => $users,
         ]);
     }
 
@@ -26,7 +28,6 @@ class ForumController extends Controller
             'forums' => $forums,
         ]);
     }
-
 
     public function show(Forum $forum)
     {
@@ -92,6 +93,8 @@ class ForumController extends Controller
                 'body' => $request->body,
                 'tag' => $request->tag
             ]);
+        } else {
+            abort(401);
         }
 
         return redirect("/forums");
@@ -99,9 +102,10 @@ class ForumController extends Controller
 
     public function destroy(Forum $forum)
     {
-
         if ($forum->ownedBy(auth()->user())) {
             $forum->delete();
+        } else {
+            abort(401);
         }
         return redirect('/forums');
     }

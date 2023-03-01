@@ -49,12 +49,17 @@ Route::delete('/forums/{forum}/like', [LikeController::class, 'destroy'])->name(
 
 // career routes
 Route::get('/careers', [CareerController::class, 'index'])->name('careers');
-Route::get('/careers/create', [CareerController::class, 'create'])->name('careers.create');
+Route::get('/careers/create', [CareerController::class, 'create'])->name('careers.create')->middleware(['auth', 'verified']);
 Route::post('/careers', [CareerController::class, 'save'])->middleware(['auth', 'verified']);
+
+Route::get('/careers/dashboard', [CareerController::class, 'dashboard'])->name('careers.dashboard')->middleware(['auth', 'verified']);
+
 Route::get('/careers/{career}/edit', [CareerController::class, 'edit'])->name('careers.edit')->middleware(['auth', 'verified']);
-Route::put('/careers/{career}', [CareerController::class, 'update'])->middleware(['auth', 'verified']);
+Route::put('/careers/{career}', [CareerController::class, 'update'])->name("careers.update")->middleware(['auth', 'verified']);
+
 Route::delete('/careers/{career}', [CareerController::class, 'destroy'])->name('careers.destroy')->middleware(['auth', 'verified']);
 Route::get('/careers/{career}', [CareerController::class, 'show'])->name('careers.show');
+
 
 
 Route::get('/articles', [ForumController::class, 'index'])->name('articles');

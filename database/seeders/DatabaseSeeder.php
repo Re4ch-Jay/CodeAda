@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Panhareach Phat",
             'email' => 'panhareach.phat@student.cadt.edu.kh',
         ]);
+        \App\Models\User::factory(100)->create();
 
         \App\Models\Forum::factory(100)->create(['user_id' => 1]);
         \App\Models\Career::factory(100)->create(['user_id' => 1]);

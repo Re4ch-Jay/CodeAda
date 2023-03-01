@@ -6,7 +6,7 @@
         <span class="text-sm">{{ $forum->created_at->diffForHumans() }}</span>
     </div>
     <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-        <a href="#">{{ $forum->title }}</a>
+        <a href="/forums?search={{ $forum->title }}">{{ $forum->title }}</a>
     </h2>
     <p class="mb-5 font-light text-gray-500 text-gray-400">
         {{ $forum->description }}
@@ -17,7 +17,9 @@
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                 alt="Jese Leos avatar" />
             <span class="font-medium text-gray-900">
-                {{ $forum->user->name }}
+                <a href="">
+                    {{ $forum->user->name }}
+                </a>
             </span>
             <x-likes_and_comment :likes="$forum->likes" :comments="$forum->comments" />
         </div>

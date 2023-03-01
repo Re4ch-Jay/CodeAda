@@ -92,7 +92,7 @@
 
                         <label class="block mb-6">
                             <span class="text-gray-700">Job Description</span>
-                            <textarea name="description" value="{{ old('description') }}"
+                            <textarea name="description"
                                 class="
                           block
                           w-full
@@ -105,7 +105,7 @@
                           focus:ring-indigo-200
                           focus:ring-opacity-50
                         "
-                                rows="3" placeholder="Description"></textarea>
+                                rows="3" placeholder="Description">{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="text-red-400 font-bold text-xs mt-2">{{ $message }}</div>
                             @enderror
