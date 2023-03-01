@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('careers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->string("title");
+            $table->longText("description");
+            $table->string("location");
+            $table->string("website")->nullable();
+            $table->string("company_name");
+            $table->string("tags");
+            $table->string("job_type");
+            $table->double("salary")->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,14 @@ class CareerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence(1),
+            'description' => $this->faker->paragraph(5),
+            'location' => $this->faker->city(),
+            'tags' => $this->faker->word(),
+            'salary' => 1000,
+            'company_name' => $this->faker->company(),
+            'job_type' => "Full-Time",
+            'website' => $this->faker->url(),
         ];
     }
 }
