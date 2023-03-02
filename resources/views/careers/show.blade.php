@@ -42,13 +42,16 @@
             <div class="text-lg font-bold mb-1">Job Type</div>
             <p class="pb-6">{{ $career->job_type }}</p>
             <div class="text-lg font-bold mb-1">Salary</div>
-            <p class="pb-6">${{ $career->salary }}</p>
+            @if (empty($career->salary))
+                <p class="pb-6">Negotiate</p>
+            @else
+                <p class="pb-6">${{ $career->salary }}</p>
+            @endif
             <div class="text-lg font-bold mb-1">Job Description</div>
             <p class="pb-6">{{ $career->description }}</p>
 
             <div class="text-lg font-bold mb-1">Webiste</div>
             <p class="pb-6 text-blue-400">{{ $career->website }}</p>
-
 
         </div>
     </div>
