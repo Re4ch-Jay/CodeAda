@@ -23,9 +23,10 @@ class ForumController extends Controller
     {
 
         $forums = Forum::oldest()->filter(request(['tag', 'user', 'search', 'filter']))->paginate(7);
-
+        $users = User::all();
         return view('forum.index', [
             'forums' => $forums,
+            "users" => $users
         ]);
     }
 

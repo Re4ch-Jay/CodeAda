@@ -21,7 +21,7 @@ class CareerController extends Controller
     public function dashboard()
     {
 
-        $careers = Career::latest()->filter(request(['tags', 'title', 'location', 'job_type', 'search']))->paginate(10);
+        $careers = Career::latest()->filter(request(['tags', 'title', 'location', 'job_type', 'search']))->simplePaginate(15);
 
         return view('careers.dashboard', [
             'careers' => $careers,
