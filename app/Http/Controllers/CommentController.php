@@ -38,16 +38,19 @@ class CommentController extends Controller
          * save
          */
 
-        $this->validate($request, [
-            'comment' => 'required',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'comment' => 'required',
+            ]
+        );
 
         $request->user()->comments()->create([
             'comment' => $request->comment,
             'forum_id' => $forum->id,
         ]);
 
-        return back();
+        return back()->with('message', "Comment posted successfully");
     }
 
     /**
@@ -86,7 +89,7 @@ class CommentController extends Controller
             ]);
         }
 
-        return redirect("/forums");
+        return redirect("/forums")->with('message', "Comment edited successfully");
     }
 
     /**
@@ -98,15 +101,8 @@ class CommentController extends Controller
     public function destroy(Comment $comment, Request $request)
     {
 
-        //dd($comment->ownedBy(auth()->user()));
-
-        // dd($request->user()->comments()->where('comment_id', $comment->id));
         $request->user()->comments()->where('id', $comment->id)->delete();
 
-        // if ($comment->ownedBy(auth()->user())) {
-        //     $comment->delete();
-        // }
-
-        return back();
+        return back()->with('message', "Comment deleted successfully");
     }
 }

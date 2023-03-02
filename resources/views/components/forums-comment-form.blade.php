@@ -14,6 +14,9 @@
                     class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none text-gray-900 placeholder-gray-600 bg-gray-100"
                     placeholder="Write a comment..."></textarea>
             </div>
+            @error('comment')
+                <div class="mb-5 text-red-400 font-bold text-xs">{{ $message }}</div>
+            @enderror
             @include('partials._button-post')
         </form>
     </div>

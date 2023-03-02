@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 
 class ForumController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 
         $forums = Forum::latest()->filter(request(['tag', 'user', 'search', 'filter']))->paginate(7);
         $users = User::all();
+        $search = $request->search;
+
         return view('forum.index', [
             'forums' => $forums,
             'users' => $users,
+            "search" => $search,
         ]);
     }
 
@@ -67,7 +70,7 @@ class ForumController extends Controller
             'tag' => $request->tag
         ]);
 
-        return redirect('/forums');
+        return redirect('/forums')->with('message', 'Wooohooo!!! Forums shared successfully!');
     }
 
     public function edit(Forum $forum)
@@ -98,7 +101,7 @@ class ForumController extends Controller
             abort(401);
         }
 
-        return redirect("/forums");
+        return redirect("/forums")->with('message', 'Wooohooo!!! Forums edited successfully!');
     }
 
     public function destroy(Forum $forum)
@@ -108,6 +111,6 @@ class ForumController extends Controller
         } else {
             abort(401);
         }
-        return redirect('/forums');
+        return redirect('/forums')->with('message', 'Wooohooo!!! Forums deleted successfully!');
     }
 }

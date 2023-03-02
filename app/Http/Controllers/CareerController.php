@@ -58,7 +58,7 @@ class CareerController extends Controller
             'salary' => $request->salary,
         ]);
 
-        return redirect('/careers/dashboard');
+        return redirect('/careers/dashboard')->with('message', 'Wooohooo!!! Career posted successfully!');
     }
 
     public function edit(Career $career)
@@ -96,7 +96,7 @@ class CareerController extends Controller
             abort(401);
         }
 
-        return redirect('/careers/dashboard');
+        return redirect('/careers/dashboard')->with('message', 'Wooohooo!!! Career edited successfully!');
     }
 
     public function destroy(Career $career)
@@ -109,7 +109,7 @@ class CareerController extends Controller
             abort(401);
         }
 
-        return back();
+        return back()->with('message', 'Wooohooo!!! Career deleted successfully!');
     }
 
 

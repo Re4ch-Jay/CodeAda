@@ -10,7 +10,10 @@
 
             <div class="my-10 text-gray-900 font-bold sm:text-xl">
                 <a href="/forums">
-                    Forums {{ $forums->total() }}
+                    Forums found {{ $forums->total() }}
+                    @if (!empty($search))
+                        {{ $search }}
+                    @endif
                 </a>
             </div>
 
