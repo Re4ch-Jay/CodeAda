@@ -16,13 +16,16 @@
                     <img src="https://randomuser.me/api/portraits/men/97.jpg"
                         class="h-10 w-10 rounded-full mr-2 object-cover" />
                     <div>
-                        <p class="font-semibold text-gray-200 text-sm"> {{ $forum->user->name }} </p>
+                        <p class="font-semibold text-gray-200 text-sm">
+                            <a href="{{ route('users.forums', $forum->user) }}">
+                                {{ $forum->user->name }}
+                            </a>
+                        </p>
                         <p class="font-semibold text-gray-400 text-xs"> {{ $forum->created_at->diffForHumans() }} </p>
                     </div>
                 </div>
             </div>
         </div>
-
 
 
         <div class="px-4 lg:px-0 mt-12 text-gray-900 max-w-screen-md mx-auto text-lg leading-relaxed">

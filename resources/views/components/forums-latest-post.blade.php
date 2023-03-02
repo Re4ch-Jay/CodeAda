@@ -17,9 +17,10 @@
                 <img class="w-7 h-7 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="Jese Leos avatar" />
-                <span class="font-medium text-gray-900">
+                <a href="{{ route('users.forums', $forums[0]->user) }}" class="font-medium text-gray-900">
                     {{ $forums[0]->user->name }}
-                </span>
+                </a>
+
                 <x-likes_and_comment :likes="$forums[0]->likes" :comments="$forums[0]->comments" />
             </div>
             <a href="/forums/{{ $forums[0]->id }}"
@@ -44,9 +45,9 @@
                 <img class="w-7 h-7 rounded-full"
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="Jese Leos avatar" />
-                <span class="font-medium text-gray-900">
+                <a href="{{ route('users.forums', $forums[1]->user) }}" class="font-medium text-gray-900">
                     {{ $forums[1]->user->name }}
-                </span>
+                </a>
 
                 <x-likes_and_comment :likes="$forums[1]->likes" :comments="$forums[1]->comments" />
             </div>

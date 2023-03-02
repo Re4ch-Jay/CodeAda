@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\CareerController;
 use App\Models\Forum;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserForumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,10 @@ Route::get('/', function () {
 // Show forums
 Route::get('/forums', [ForumController::class, 'index'])->name('forums');
 Route::get('/forums/oldest', [ForumController::class, 'oldest'])->name('forums.oldest');
+
+// forums user
+
+Route::get('/users/{user:name}/forums', [UserForumController::class, 'index'])->name('users.forums'); // {user} or {user:name} matter
 
 // Crud forums
 Route::get('/forums/forum', [ForumController::class, 'create'])->middleware(['auth', 'verified']);

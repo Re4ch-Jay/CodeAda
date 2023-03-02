@@ -17,7 +17,7 @@
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                 alt="Jese Leos avatar" />
             <span class="font-medium text-gray-900">
-                <a href="">
+                <a href="{{ route('users.forums', $forum->user) }}">
                     {{ $forum->user->name }}
                 </a>
             </span>
