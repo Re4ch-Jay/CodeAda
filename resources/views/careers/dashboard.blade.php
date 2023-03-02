@@ -82,9 +82,13 @@
                                             </a>
                                         </td>
                                         <td class="px-4 py-3 text-ms border">
-                                            <a href="/careers/dashboard?search={{ $career->salary }}#list">
-                                                ${{ $career->salary }}
-                                            </a>
+                                            @if (empty($career->salary))
+                                                <p>Negotiate</p>
+                                            @else
+                                                <a href="/careers/dashboard?search={{ $career->salary }}#list">
+                                                    ${{ $career->salary }}
+                                                </a>
+                                            @endif
                                         </td>
                                         <td class="px-4 py-3 text-ms border">
                                             <a href="/careers/dashboard?search={{ $career->job_type }}#list">
