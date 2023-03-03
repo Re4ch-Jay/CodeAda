@@ -1,11 +1,11 @@
 <x-app-layout>
 
     <div class="mt-10 text-4xl font-bold text-center">
-        Leaderboard
+        Leaderboard 🔥
     </div>
 
     <div class="text-center text-md text-gray-600 mt-2">
-        Here is the most active users in this portal.
+        Here is the most active users in this portal ❤️.
     </div>
 
 
