@@ -23,7 +23,11 @@
                     <img src="https://randomuser.me/api/portraits/men/97.jpg"
                         class="h-10 w-10 rounded-full mr-2 object-cover" />
                     <div>
-                        <p class="font-semibold text-gray-200 text-sm"> {{ $career->user->name }} </p>
+                        <p class="font-semibold text-gray-200 text-sm">
+                            <a href="{{ route('users.forums', $career->user) }}">
+                                {{ $career->user->name }}
+                            </a>
+                        </p>
                         <p class="font-semibold text-gray-400 text-xs"> {{ $career->created_at->diffForHumans() }}
                         </p>
                     </div>
