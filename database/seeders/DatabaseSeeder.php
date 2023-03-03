@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::factory(2000)->create();
 
-        \App\Models\Forum::factory(1000)->create(['user_id' => 1]);
-        \App\Models\Career::factory(1000)->create(['user_id' => 2]);
+        \App\Models\Forum::factory(2000)->create(['user_id' => 1]);
+        \App\Models\Career::factory(2000)->create(['user_id' => 2]);
     }
 }

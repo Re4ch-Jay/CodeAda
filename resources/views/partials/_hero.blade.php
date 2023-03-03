@@ -11,7 +11,8 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">The official Cambodia
+                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">CodeAda the official
+                        Cambodia
                         developer job
                         board</h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600">Post your hiring – It only takes a few seconds</p>

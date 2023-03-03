@@ -5,8 +5,13 @@
             <div class="flex flex-wrap justify-center">
                 <div class="w-full flex justify-center">
                     <div class="relative">
-                        <img src="https://github.com/creativetimofficial/soft-ui-dashboard-tailwind/blob/main/build/assets/img/team-2.jpg?raw=true"
-                            class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" />
+                        @if ($user->avatar == null)
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                                class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" />
+                        @else
+                            <img src="{{ $user->avatar }}"
+                                class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]" />
+                        @endif
                     </div>
                 </div>
                 <div class="w-full text-center mt-20">

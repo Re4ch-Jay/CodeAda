@@ -20,8 +20,13 @@
                     {{ $career->title }}
                 </h2>
                 <div class="flex mt-3">
-                    <img src="https://randomuser.me/api/portraits/men/97.jpg"
-                        class="h-10 w-10 rounded-full mr-2 object-cover" />
+                    @if ($career->user->avatar == null)
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                            class="h-10 w-10 rounded-full mr-2 object-cover" />
+                    @else
+                        <img src="{{ $career->user->avatar }}" class="h-10 w-10 rounded-full mr-2 object-cover" />
+                    @endif
+
                     <div>
                         <p class="font-semibold text-gray-200 text-sm">
                             <a href="{{ route('users.forums', $career->user) }}">

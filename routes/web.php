@@ -6,9 +6,10 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserForumController;
+use App\Http\Controllers\LeaderboardController;
+use App\Http\Controllers\Auth\GithubSignInController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::get('/', function () {
 })->name('home');
 
 // Route::get('/', function () {
-//     return redirect("https://community-flame.vercel.app/");
+//     return redirect("https://codeada.vercel.app/");
 // })->name('home');
 
 // Show forums
@@ -69,10 +70,14 @@ Route::put('/careers/{career}', [CareerController::class, 'update'])->name("care
 Route::delete('/careers/{career}', [CareerController::class, 'destroy'])->name('careers.destroy')->middleware(['auth', 'verified']);
 Route::get('/careers/{career}', [CareerController::class, 'show'])->name('careers.show');
 
-
-
 Route::get('/articles', [ForumController::class, 'index'])->name('articles');
 
+// Gihub Auth
+Route::get('/auth/redirect', [GithubSignInController::class, 'redirect']);
+
+Route::get('/auth/callback', [GithubSignInController::class, 'callback']);
+
+// CodeAda Auth
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

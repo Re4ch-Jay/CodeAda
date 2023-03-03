@@ -5,6 +5,7 @@
                 style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
             <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
                 class="absolute left-0 top-0 w-full h-full z-0 object-cover" />
+
             <div class="p-4 absolute bottom-0 left-0 z-20">
                 <div class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">
                     <x-forums-tag :tag="$forum->tag" />
@@ -13,8 +14,14 @@
                     {{ $forum->title }}
                 </h2>
                 <div class="flex mt-3">
-                    <img src="https://randomuser.me/api/portraits/men/97.jpg"
-                        class="h-10 w-10 rounded-full mr-2 object-cover" />
+
+                    @if ($forum->user->avatar == null)
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                            class="h-10 w-10 rounded-full mr-2 object-cover" />
+                    @else
+                        <img src="{{ $forum->user->avatar }}" class="h-10 w-10 rounded-full mr-2 object-cover" />
+                    @endif
+
                     <div>
                         <p class="font-semibold text-gray-200 text-sm">
                             <a href="{{ route('users.forums', $forum->user) }}">

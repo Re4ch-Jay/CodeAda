@@ -13,9 +13,13 @@
     </p>
     <div class="flex justify-between items-center">
         <div class="flex items-center space-x-1">
-            <img class="w-7 h-7 rounded-full"
-                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                alt="Jese Leos avatar" />
+            @if ($forum->user->avatar == null)
+                <img class="w-7 h-7 rounded-full"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
+                    alt="">
+            @else
+                <img class="w-7 h-7 rounded-full" src="{{ $forum->user->avatar }}" />
+            @endif
             <span class="font-medium text-gray-900">
                 <a href="{{ route('users.forums', $forum->user) }}">
                     {{ $forum->user->name }}
