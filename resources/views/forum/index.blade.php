@@ -13,6 +13,9 @@
                     Forums found {{ $forums->total() }}
                     @if (!empty($search))
                         {{ $search }}
+                        @if ($forums->count() == 0)
+                            did not found
+                        @endif
                     @endif
                 </a>
             </div>
@@ -34,9 +37,15 @@
                 <div class="mt-6 p-10">
                     {{ $forums->links() }}
                 </div>
-            @else
-                <div class="flex items-center justify-center">
-                    <p class="text-white text-md-center">There is no post right now come back</p>
+            @endif
+            @if ($forums->count() == 0)
+                <div class="flex flex-col jutify-center items-center">
+                    <strong>Search suggestions:</strong>
+                    <ul>
+                        <li class="list-disc">Try more general keywords</li>
+                        <li class="list-disc">Check your spelling</li>
+                        <li class="list-disc">Replace abbreviations with the entire word</li>
+                    </ul>
                 </div>
             @endif
 

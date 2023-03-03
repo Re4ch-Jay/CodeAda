@@ -24,6 +24,9 @@
                     @if (!empty($search))
                         with
                         {{ $search }}
+                        @if ($careers->count() == 0)
+                            did not found
+                        @endif
                     @endif
                 </a>
             </div>
@@ -32,6 +35,18 @@
             @foreach ($careers as $career)
                 <x-jobs-card :career="$career" />
             @endforeach
+
+
+            @if ($careers->count() == 0)
+                <div class="flex flex-col jutify-center items-center">
+                    <strong>Search suggestions:</strong>
+                    <ul>
+                        <li class="list-disc">Try more general keywords</li>
+                        <li class="list-disc">Check your spelling</li>
+                        <li class="list-disc">Replace abbreviations with the entire word</li>
+                    </ul>
+                </div>
+            @endif
 
             <div class="mt-6 p-10">
                 {{ $careers->links() }}
