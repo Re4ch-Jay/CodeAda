@@ -45,7 +45,13 @@
             <div class="mt-6 py-6 border-t border-slate-200 text-center">
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full px-4">
-                        <p class="font-light leading-relaxed text-slate-600 mb-4">No bio yet</p>
+                        <p class="font-light leading-relaxed text-slate-600 mb-4">
+                            @if (!empty($user->bio))
+                                {{ $user->bio }}
+                            @else
+                                No bio yet
+                            @endif
+                        </p>
                     </div>
                 </div>
             </div>
