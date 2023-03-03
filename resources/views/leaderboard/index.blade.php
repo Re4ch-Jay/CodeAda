@@ -1,6 +1,12 @@
 <x-app-layout>
 
+    <div class="mt-10 text-4xl font-bold text-center">
+        Leaderboard
+    </div>
 
+    <div class="text-center text-md text-gray-600 mt-2">
+        Here is the most active users in this portal.
+    </div>
 
 
     <div class="px-3 md:lg:xl:px-40 py-20 bg-opacity-10">
