@@ -89,7 +89,7 @@ class CommentController extends Controller
             ]);
         }
 
-        return redirect("/forums")->with('message', "Comment edited successfully");
+        return back()->with('message', "Comment edited successfully");
     }
 
     /**

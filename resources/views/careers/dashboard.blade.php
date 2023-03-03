@@ -20,7 +20,7 @@
 
         <div class="my-10 text-gray-900 font-bold sm:text-xl text-center">
             <a href="/careers/dashboard">
-                Jobs hiring by {{ auth()->user()->careers()->count() }} {{ auth()->user()->name }}
+                Jobs hiring by {{ auth()->user()->name }} found {{ auth()->user()->careers()->count() }}
             </a>
         </div>
 
