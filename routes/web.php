@@ -6,6 +6,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserForumController;
 
@@ -39,6 +40,9 @@ Route::get('/users/{user:name}/forums', [UserForumController::class, 'index'])->
 // Crud forums
 Route::get('/forums/forum', [ForumController::class, 'create'])->middleware(['auth', 'verified']);
 Route::post('/forums/forum', [ForumController::class, 'store'])->middleware(['auth', 'verified']);
+
+Route::get('/forums/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard');
+
 Route::get('/forums/{forum}', [ForumController::class, 'show'])->name('forums.show');
 Route::get('/forums/{forum}/edit', [ForumController::class, 'edit'])->name('forums.edit')->middleware(['auth', 'verified']);
 Route::put('/forums/{forum}', [ForumController::class, 'update'])->middleware(['auth', 'verified']);
