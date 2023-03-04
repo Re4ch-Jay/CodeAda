@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Forum;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ForumController extends Controller
@@ -59,14 +60,14 @@ class ForumController extends Controller
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required|max:255',
-            'body' => 'required',
+            'markdown' => 'required',
             'tag' => 'required'
         ]);
 
         $request->user()->forums()->create([
             'title' => $request->title,
             'description' => $request->description,
-            'body' => $request->body,
+            'markdown' => $request->markdown,
             'tag' => $request->tag
         ]);
 
@@ -75,7 +76,6 @@ class ForumController extends Controller
 
     public function edit(Forum $forum)
     {
-        //dd($forum->description);
         return view('forum.edit', ['forum' => $forum]);
     }
 
@@ -85,7 +85,7 @@ class ForumController extends Controller
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required|max:255',
-            'body' => 'required',
+            'markdown' => 'required',
             'tag' => 'required'
         ]);
 
@@ -94,7 +94,7 @@ class ForumController extends Controller
             $forum->update([
                 'title' => $request->title,
                 'description' => $request->description,
-                'body' => $request->body,
+                'markdown' => $request->markdown,
                 'tag' => $request->tag
             ]);
         } else {

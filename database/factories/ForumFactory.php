@@ -19,7 +19,7 @@ class ForumFactory extends Factory
         return [
             'title' => $this->faker->sentence(1),
             'description' => $this->faker->sentence(20),
-            'body' => $this->faker->sentence(40),
+            'markdown' => "# Hello this is Markdown",
             'tag' => $this->faker->word(),
         ];
     }

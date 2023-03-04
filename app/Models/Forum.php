@@ -15,7 +15,7 @@ class Forum extends Model
     protected $fillable = [
         'title',
         'description',
-        'body',
+        'markdown',
         'user_id',
         'tag'
     ];

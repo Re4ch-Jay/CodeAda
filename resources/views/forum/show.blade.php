@@ -65,10 +65,11 @@
                     </form>
                 @endif
             @endif
-
-            <p class="pb-6">{{ $forum->body }}</p>
+            <div class="prose prose-slate">
+                <p>{{ Illuminate\Mail\Markdown::parse($forum->markdown) }}</p>
+            </div>
             @if (auth()->user() && $forum->ownedBy(auth()->user()))
-                <div class="flex justify-between align-center">
+                <div class="mt-20 flex justify-between align-center">
                     <form action="{{ route('forums.destroy', $forum) }}" method="POST">
                         @csrf
                         @method('DELETE')

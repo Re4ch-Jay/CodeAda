@@ -15,7 +15,11 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="//unpkg.com/alpinejs" defer></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+        integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="/js/markdown.js" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/@tailwindcss/typography@0.4.x/dist/typography.min.css" />
 </head>
 
 <body class="font-sans antialiased">

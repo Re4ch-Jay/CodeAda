@@ -35,15 +35,15 @@
                 </div>
 
 
-                <div class="mb-6">
-                    <label for="body" class="block mb-2 text-sm font-medium text-gray-900">Your body
-                        markdown</label>
-                    <textarea type="body" id="body" name="body" rows="10"
-                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500">{{ old('body') }}</textarea>
-                    @error('body')
-                        <div class="text-red-400 font-bold text-xs">{{ $message }}</div>
-                    @enderror
+                <label for="body" class="block mb-2 text-sm font-medium text-gray-900">Your body
+                    markdown</label>
+                <div class="mb-6 flex ">
+                    <textarea type="markdown" id="markdown" name="markdown" rows="10"
+                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500">{{ old('markdown') }}</textarea>
                 </div>
+                @error('markdown')
+                    <div class="text-red-400 font-bold text-xs">{{ $message }}</div>
+                @enderror
 
                 @include('partials._button-post')
             </form>

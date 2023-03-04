@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Forum;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ForumController;
