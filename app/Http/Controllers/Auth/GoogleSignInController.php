@@ -8,32 +8,32 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 
-class GithubSignInController extends Controller
+class GoogleSignInController extends Controller
 {
     public function redirect()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
     public function callback()
     {
-        $githubUser = Socialite::driver('github')->user();
+        $googleUser = Socialite::driver('google')->user();
 
-        $existingUser = User::where('email', $githubUser->email)->first();
+        $existingUser = User::where('email', $googleUser->email)->first();
 
         if ($existingUser) {
             Auth::login($existingUser);
         } else {
             $user = User::updateOrCreate(
                 [
-                    'github_id' => $githubUser->id,
+                    'google_id' => $googleUser->getId(),
                 ],
                 [
-                    'name' => $githubUser->name,
-                    'email' => $githubUser->email,
-                    'avatar' => $githubUser->avatar,
-                    'github_token' => $githubUser->token,
-                    'github_refresh_token' => $githubUser->refreshToken,
+                    'name' => $googleUser->getName(),
+                    'email' => $googleUser->getEmail(),
+                    'avatar' => $googleUser->getAvatar(),
+                    'google_token' => $googleUser->token,
+                    'google_refresh_token' => $googleUser->refreshToken,
                 ]
             );
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserForumController;
 use App\Http\Controllers\LeaderboardController;
 use App\Http\Controllers\Auth\GithubSignInController;
+use App\Http\Controllers\Auth\GoogleSignInController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::get('/forums/oldest', [ForumController::class, 'oldest'])->name('forums.o
 
 // forums user
 
-Route::get('/users/{user:name}/forums', [UserForumController::class, 'index'])->name('users.forums'); // {user} or {user:name} matter
+Route::get('/users/{user}/forums', [UserForumController::class, 'index'])->name('users.forums'); // {user} or {user:name} matter
 
 // Crud forums
 Route::get('/forums/forum', [ForumController::class, 'create'])->middleware(['auth', 'verified']);
@@ -73,9 +74,12 @@ Route::get('/careers/{career}', [CareerController::class, 'show'])->name('career
 Route::get('/articles', [ForumController::class, 'index'])->name('articles');
 
 // Gihub Auth
-Route::get('/auth/redirect', [GithubSignInController::class, 'redirect']);
+Route::get('/auth/github/redirect', [GithubSignInController::class, 'redirect'])->name('github.redirect');
+Route::get('/auth/github/callback', [GithubSignInController::class, 'callback']);
 
-Route::get('/auth/callback', [GithubSignInController::class, 'callback']);
+// Google Auth
+Route::get('/auth/google/redirect', [GoogleSignInController::class, 'redirect'])->name('google.redirect');
+Route::get('/auth/google/callback', [GoogleSignInController::class, 'callback']);
 
 // CodeAda Auth
 Route::middleware(['auth', 'verified'])->group(function () {

@@ -19,7 +19,7 @@
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
                         alt="">
                 @else
-                    <img class="w-7 h-7 rounded-full" src="{{ $forum->user->avatar }}" />
+                    <img class="w-7 h-7 rounded-full" src="{{ $forums[0]->user->avatar }}" />
                 @endif
                 <a href="{{ route('users.forums', $forums[0]->user) }}" class="font-medium text-gray-900">
                     {{ $forums[0]->user->name }}
@@ -51,7 +51,7 @@
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
                         alt="">
                 @else
-                    <img class="w-7 h-7 rounded-full" src="{{ $forum->user->avatar }}" />
+                    <img class="w-7 h-7 rounded-full" src="{{ $forums[1]->user->avatar }}" />
                 @endif
                 <a href="{{ route('users.forums', $forums[1]->user) }}" class="font-medium text-gray-900">
                     {{ $forums[1]->user->name }}

@@ -24,10 +24,13 @@
                     </div>
                     <div class="p-3 text-center">
                         <span
-                            class="text-xl font-bold block uppercase tracking-wide text-slate-700">{{ $careers->count() }}</span>
-                        <span class="text-sm text-slate-400">Job
-                            Listing</span>
+                            class="text-xl font-bold block uppercase tracking-wide text-slate-700">{{ $user->careers->count() }}
+                        </span>
+                        <span class="text-sm text-slate-400">
+                            Hiring
+                        </span>
                     </div>
+
                     <div class="p-3 text-center">
                         <span
                             class="text-xl font-bold block uppercase tracking-wide text-slate-700">{{ $user->receivedLikes->count() }}</span>
