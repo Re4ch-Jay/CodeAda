@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -56,6 +56,25 @@
                 autofocus autocomplete="bio" />
             <x-input-error class="mt-2" :messages="$errors->get('bio')" />
         </div>
+
+        @if (!filter_var(auth()->user()->avatar, FILTER_VALIDATE_URL))
+            <label class="block mb-6">
+                <span class="text-gray-700">Avatar (Optional)</span>
+                <input name="avatar" type="file"
+                    class="
+          block
+          w-full
+          mt-1
+          focus:border-indigo-300
+          focus:ring
+          focus:ring-indigo-200
+          focus:ring-opacity-50
+          bg-indigo-200
+          d-none
+        " />
+                <p class="mt-1 text-sm text-gray-400" id="file_input_help">PNG, or JPG</p>
+            </label>
+        @endif
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

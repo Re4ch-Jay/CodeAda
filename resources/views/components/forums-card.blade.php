@@ -16,7 +16,9 @@
             @if ($forum->user->avatar == null)
                 <x-no-avatar />
             @else
-                <img class="w-10 h-10 rounded-full" src="{{ $forum->user->avatar }}" />
+                <img class="w-10 h-10 rounded-full"
+                    src="{{ filter_var($forum->user->avatar, FILTER_VALIDATE_URL) ? $forum->user->avatar : asset('storage/' . $forum->user->avatar) }}"
+                    alt="">
             @endif
             <span class="font-medium text-gray-900">
                 <a href="{{ route('users.forums', $forum->user) }}">

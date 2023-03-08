@@ -18,7 +18,9 @@
                     @if ($forum->user->avatar == null)
                         <x-no-avatar />
                     @else
-                        <img src="{{ $forum->user->avatar }}" class="h-10 w-10 rounded-full object-cover" />
+                        <img class="w-10 h-10 rounded-full"
+                            src="{{ filter_var($forum->user->avatar, FILTER_VALIDATE_URL) ? $forum->user->avatar : asset('storage/' . $forum->user->avatar) }}"
+                            alt="">
                     @endif
 
                     <div>

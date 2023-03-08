@@ -17,7 +17,9 @@
                 @if ($forums[0]->user->avatar == null)
                     <x-no-avatar />
                 @else
-                    <img class="w-10 h-10 rounded-full" src="{{ $forums[0]->user->avatar }}" />
+                    <img class="w-10 h-10 rounded-full"
+                        src="{{ filter_var($forums[0]->user->avatar, FILTER_VALIDATE_URL) ? $forums[0]->user->avatar : asset('storage/' . $forums[0]->user->avatar) }}"
+                        alt="">
                 @endif
                 <a href="{{ route('users.forums', $forums[0]->user) }}" class="font-medium text-gray-900">
                     {{ $forums[0]->user->name }}
@@ -49,7 +51,9 @@
                 @if ($forums[1]->user->avatar == null)
                     <x-no-avatar />
                 @else
-                    <img class="w-7 h-7 rounded-full" src="{{ $forums[1]->user->avatar }}" />
+                    <img class="w-10 h-10 rounded-full"
+                        src="{{ filter_var($forums[1]->user->avatar, FILTER_VALIDATE_URL) ? $forums[1]->user->avatar : asset('storage/' . $forums[1]->user->avatar) }}"
+                        alt="">
                 @endif
                 <a href="{{ route('users.forums', $forums[1]->user) }}" class="font-medium text-gray-900">
                     {{ $forums[1]->user->name }}

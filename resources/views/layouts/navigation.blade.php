@@ -38,7 +38,9 @@
                                     @if (auth()->user()->avatar == null)
                                         <x-no-avatar />
                                     @else
-                                        <x-has-avatar />
+                                        <img class="w-10 h-10 rounded-full"
+                                            src="{{ filter_var(auth()->user()->avatar, FILTER_VALIDATE_URL) ? auth()->user()->avatar : asset('storage/' . auth()->user()->avatar) }}"
+                                            alt="">
                                     @endif
                                 </div>
 

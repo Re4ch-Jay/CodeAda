@@ -23,7 +23,9 @@
                     @if ($career->user->avatar == null)
                         <x-no-avatar />
                     @else
-                        <img src="{{ $career->user->avatar }}" class="h-10 w-10 rounded-full object-cover" />
+                        <img class="w-10 h-10 rounded-full"
+                            src="{{ filter_var($career->user->avatar, FILTER_VALIDATE_URL) ? $career->user->avatar : asset('storage/' . $career->user->avatar) }}"
+                            alt="">
                     @endif
 
                     <div>

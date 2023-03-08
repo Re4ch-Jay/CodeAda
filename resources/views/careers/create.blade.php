@@ -174,20 +174,6 @@
                                 placeholder="$1000" />
 
                         </label>
-
-                        <label class="block mb-6">
-                            <span class="text-gray-700">Your Company Logo (Optional)</span>
-                            <input name="logo" type="file"
-                                class="
-                          block
-                          w-full
-                          mt-1
-                          focus:border-indigo-300
-                          focus:ring
-                          focus:ring-indigo-200
-                          focus:ring-opacity-50
-                        " />
-                        </label>
                         @include('partials._button-post')
                     </form>
                 </div>
