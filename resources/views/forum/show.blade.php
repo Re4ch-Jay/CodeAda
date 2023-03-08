@@ -3,7 +3,7 @@
         <div class="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative" style="height: 24em;">
             <div class="absolute left-0 bottom-0 w-full h-full z-10"
                 style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
-            <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+            <img src="https://www.freecodecamp.org/news/content/images/2022/05/ilya-pavlov-OqtafYT5kTw-unsplash.jpg"
                 class="absolute left-0 top-0 w-full h-full z-0 object-cover" />
 
             <div class="p-4 absolute bottom-0 left-0 z-20">
@@ -16,19 +16,19 @@
                 <div class="flex mt-3">
 
                     @if ($forum->user->avatar == null)
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
-                            class="h-10 w-10 rounded-full mr-2 object-cover" />
+                        <x-no-avatar />
                     @else
-                        <img src="{{ $forum->user->avatar }}" class="h-10 w-10 rounded-full mr-2 object-cover" />
+                        <img src="{{ $forum->user->avatar }}" class="h-10 w-10 rounded-full object-cover" />
                     @endif
 
                     <div>
-                        <p class="font-semibold text-gray-200 text-sm">
+                        <p class="ml-2 font-semibold text-gray-200 text-sm">
                             <a href="{{ route('users.forums', $forum->user) }}">
                                 {{ $forum->user->name }}
                             </a>
                         </p>
-                        <p class="font-semibold text-gray-400 text-xs"> {{ $forum->created_at->diffForHumans() }} </p>
+                        <p class="ml-2 font-semibold text-gray-400 text-xs"> {{ $forum->created_at->diffForHumans() }}
+                        </p>
                     </div>
                 </div>
             </div>

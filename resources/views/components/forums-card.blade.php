@@ -14,11 +14,9 @@
     <div class="flex justify-between items-center">
         <div class="flex items-center space-x-1">
             @if ($forum->user->avatar == null)
-                <img class="w-7 h-7 rounded-full"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
-                    alt="">
+                <x-no-avatar />
             @else
-                <img class="w-7 h-7 rounded-full" src="{{ $forum->user->avatar }}" />
+                <img class="w-10 h-10 rounded-full" src="{{ $forum->user->avatar }}" />
             @endif
             <span class="font-medium text-gray-900">
                 <a href="{{ route('users.forums', $forum->user) }}">
@@ -28,7 +26,9 @@
             <x-likes_and_comment :likes="$forum->likes" :comments="$forum->comments" />
         </div>
         <a href="/forums/{{ $forum->id }}"
-            class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm
+            hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+            focus-visible:outline-indigo-600">
             Read more
         </a>
     </div>

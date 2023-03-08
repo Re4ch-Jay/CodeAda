@@ -18,9 +18,6 @@
                     <x-nav-link :href="route('forums')" :active="request()->routeIs('forums')">
                         {{ __('Forums') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('articles')" :active="request()->routeIs('articles')">
-                        {{ __('Articles') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('careers')" :active="request()->routeIs('careers')">
                         {{ __('Careers') }}
                     </x-nav-link>
@@ -38,13 +35,13 @@
                                 <div>{{ Auth::user()->name }}</div>
 
                                 <div class="ml-1">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                                    @if (auth()->user()->avatar == null)
+                                        <x-no-avatar />
+                                    @else
+                                        <x-has-avatar />
+                                    @endif
                                 </div>
+
                             </button>
                         </x-slot>
                     @endauth

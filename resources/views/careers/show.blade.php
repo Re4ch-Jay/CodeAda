@@ -3,7 +3,7 @@
         <div class="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative" style="height: 24em;">
             <div class="absolute left-0 bottom-0 w-full h-full z-10"
                 style="background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.7));"></div>
-            <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80"
+            <img src="https://cpqi.com/wp-content/uploads/Remote-Software-Developer-Jobs-in-Canada.jpg"
                 class="absolute left-0 top-0 w-full h-full z-0 object-cover" />
             <div class="p-4 absolute bottom-0 left-0 z-20">
                 <div class="px-4 py-1 bg-black text-gray-200 inline-flex items-center justify-center mb-2">
@@ -21,19 +21,18 @@
                 </h2>
                 <div class="flex mt-3">
                     @if ($career->user->avatar == null)
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
-                            class="h-10 w-10 rounded-full mr-2 object-cover" />
+                        <x-no-avatar />
                     @else
-                        <img src="{{ $career->user->avatar }}" class="h-10 w-10 rounded-full mr-2 object-cover" />
+                        <img src="{{ $career->user->avatar }}" class="h-10 w-10 rounded-full object-cover" />
                     @endif
 
                     <div>
-                        <p class="font-semibold text-gray-200 text-sm">
+                        <p class="ml-2 font-semibold text-gray-200 text-sm">
                             <a href="{{ route('users.forums', $career->user) }}">
                                 {{ $career->user->name }}
                             </a>
                         </p>
-                        <p class="font-semibold text-gray-400 text-xs"> {{ $career->created_at->diffForHumans() }}
+                        <p class="ml-2  font-semibold text-gray-400 text-xs"> {{ $career->created_at->diffForHumans() }}
                         </p>
                     </div>
                 </div>
@@ -42,7 +41,7 @@
 
         <div class="px-4 lg:px-0 mt-12 text-gray-900 max-w-screen-md mx-auto text-lg leading-relaxed">
             <a href="https://{{ $career->website }}"
-                class="bg-purple-900 text-white font-medium px-4 py-2 rounded-md text-center mb-5">
+                class="bg-indigo-600  hover:bg-indigo-600 text-white font-medium px-4 py-2 rounded-md text-center mb-5">
                 Apply Now
             </a>
 
