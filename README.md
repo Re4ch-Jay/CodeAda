@@ -6,7 +6,7 @@
 1. Phat Panhareach 
     - Role in backend and frontend
 2. Hoy Seiha
-    - Role in database design and analye
+    - Role in database design and analysis
 3. Leap Chanvuthy
     - Role in reporter
 4. Leang Menghang
