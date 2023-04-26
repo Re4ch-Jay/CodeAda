@@ -40,6 +40,6 @@ class GoogleSignInController extends Controller
             Auth::login($user);
         }
 
-        return redirect('/')->with('message', "Welcome to the Community Portal.");
+        return redirect('/forums')->with('message', "Welcome to the Community Portal.");
     }
 }

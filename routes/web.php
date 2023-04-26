@@ -25,7 +25,7 @@ use App\Http\Controllers\Auth\GoogleSignInController;
 */
 
 Route::get('/', function () {
-    return redirect("/forums");
+    return view('home/index');
 })->name('home');
 
 // Route::get('/', function () {
