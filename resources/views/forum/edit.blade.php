@@ -35,13 +35,13 @@
                         <div class="text-red-400 font-bold text-xs">{{ $message }}</div>
                     @enderror
                 </div>
-
+   
 
                 <div class="mb-6">
                     <label for="markdown" class="block mb-2 text-sm font-medium text-gray-900">Your body
                         markdown</label>
                     <textarea type="markdown" id="markdown" name="markdown" rows="10"
-                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500">{{ $forum->body }}</textarea>
+                        class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500">{{ $forum->markdown }}</textarea>
                     @error('markdown')
                         <div class="text-red-400 font-bold text-xs">{{ $message }}</div>
                     @enderror

@@ -14,9 +14,9 @@ let convert = () => {
         localStorage.setItem("markdown", markdown)
 }
 
-let init = () => {
-    document.querySelector('#markdown').value = localStorage.getItem('markdown')
-    setInterval(convert, 2000)
-}
+// let init = () => {
+//     document.querySelector('#markdown').value = localStorage.getItem('markdown')
+//     setInterval(convert, 2000)
+// }
 
-init()
+// init()

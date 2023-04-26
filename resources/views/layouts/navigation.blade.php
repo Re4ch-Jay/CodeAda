@@ -33,7 +33,7 @@
                             <button
                                 class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
-
+         
                                 <div class="ml-1">
                                     @if (auth()->user()->avatar == null)
                                         <x-no-avatar />
@@ -41,6 +41,7 @@
                                         <img class="w-10 h-10 rounded-full"
                                             src="{{ filter_var(auth()->user()->avatar, FILTER_VALIDATE_URL) ? auth()->user()->avatar : asset('storage/' . auth()->user()->avatar) }}"
                                             alt="">
+                                          
                                     @endif
                                 </div>
 
